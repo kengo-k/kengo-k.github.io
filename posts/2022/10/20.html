@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePressでブログをカスタマイズする</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/1.styles.15374917.css" as="style"><link rel="preload" href="/assets/js/app.2b833a07.js" as="script"><link rel="preload" href="/assets/js/6.a8766b0c.js" as="script"><link rel="preload" href="/assets/js/10.16103a1d.js" as="script"><link rel="prefetch" href="/assets/js/11.230760e5.js"><link rel="prefetch" href="/assets/js/12.551ce52f.js"><link rel="prefetch" href="/assets/js/13.5aebfa6b.js"><link rel="prefetch" href="/assets/js/14.7ed72f35.js"><link rel="prefetch" href="/assets/js/15.8ce6a72c.js"><link rel="prefetch" href="/assets/js/2.b8abfec1.js"><link rel="prefetch" href="/assets/js/3.66cff7e1.js"><link rel="prefetch" href="/assets/js/4.bc55eff7.js"><link rel="prefetch" href="/assets/js/5.e4220901.js"><link rel="prefetch" href="/assets/js/7.f0ff3924.js"><link rel="prefetch" href="/assets/js/8.dbee05fc.js"><link rel="prefetch" href="/assets/js/9.7ed29525.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.15374917.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="m-20"><div class="content__default"><h1 id="vuepressでブログをカスタマイズする"><a href="#vuepressでブログをカスタマイズする" class="header-anchor">#</a> VuePressでブログをカスタマイズする</h1> <p>このブログはVuePressを使っているんですが筆者はVueもVuePressもまったく使ったことがないのでいかんせん全然使い方がわからない・・・。デフォルトのままでも十分使えるほど品質が高そうですがやはりオリジナリティを出していきたくなるのが人情というもの。これから数回の記事にわけてVuePressのカスタマイズ方法を調べながら改善を行っていくシリーズをやっていきます。</p> <h2 id="vuepressのインストール"><a href="#vuepressのインストール" class="header-anchor">#</a> VuePressのインストール</h2> <p>まずはVuePressのインストールから行っていきます。公式サイトのマニュアルインストール方法を参考にしながらインストールしていきます。まずは適当なディレクトリを新規に作成します。作成したディレクトリ内で次のコマンドを実行します。</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; yarn init
+</code></pre></div><p>色々質問してくるので全部エンター(=Y)で入力します。入力を終えると<code>package.json</code>が作成されます。続いてVuePressをインストールしましょう。</p> <div class="language- extra-class"><pre class="language-text"><code>yarn add -D vuepress
+</code></pre></div><p>なおVuePressのバージョンは1.9.7となります。すでにより新しい2.0系列が存在していますがベータバージョンのため1系の最新バージョンである1.9.7を使用しています(執筆時点)。</p> <h2 id="動作確認"><a href="#動作確認" class="header-anchor">#</a> 動作確認</h2> <p>まずはサンプル記事を作成してVuePressが正常に動作しているか確認しましょう。</p> <div class="language- extra-class"><pre class="language-text"><code>mkdir docs &amp;&amp; echo '# Hello VuePress' &gt; docs/README.md
+</code></pre></div><p>docsディレクトリ内にMarkdownを作成しました。README.mdという名前で作成されたファイルはビルドするとindex.htmlに変換されます。次に<code>package.json</code>にスクリプトを登録しておきます。</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress dev docs&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress build docs&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>dev</code>は動作確認用に開発用サーバーを起動するコマンドで<code>build</code>は公開用のHTMLファイルを生成するコマンドとなります。<code>dev</code>を実行し動作確認をしてみましょう。</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; yarn dev
+</code></pre></div><p>ここにスクショはる</p> <p>HTMLが正しく表示できることを確認しました。</p> <h2 id="markdownの記法を色々試してみる"><a href="#markdownの記法を色々試してみる" class="header-anchor">#</a> Markdownの記法を色々試してみる</h2> <p>いろいろとMarkdownを編集してみてどんな記法が使えるのか確認してみます。</p> <div class="language- extra-class"><pre class="language-text"><code># Hello VuePress
+
+[[toc]]
+
+## 見出し2
+### 見出し3
+
+- リスト1
+- リスト2
+- 絵文字 :100:
+
+[リンクです](https://yahoo.co.jp)
+
+
+::: tip
+tip用のコンテナ。warningとかdangerもあるよ
+:::
+
+### テーブルサンプル
+
+| col1 | col2 |
+|------|------|
+| aaa  | bbb  |
+
+
+### ソースコードサンプル
+
+```js
+console.log(&quot;Hello, World&quot;)
+```
+</code></pre></div><p>ここにスクショはる</p> <p>GitHubなどで使いそうな基本的な記法はそのまま使えそうなことが確認できました。<code>yarn dev</code>による動作確認ができたので最後に<code>yarn build</code>で公開用のHTMLを生成してみましょう。</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token operator">&gt;</span> <span class="token function">yarn</span> build
+</code></pre></div><p>ビルドを実行すると<code>.vuepress/dist</code>以下にHTMLが生成されます。</p> <p>ここにスクショ</p> <p>index.htmlを開いてみます。</p> <p>ここにスクショ</p> <p><code>yarn dev</code>で動作確認したときと同じ内容が表示されていることを確認できればOKです。今回はいったんここまで。次回から本格的に改善のための作業を進めていきます。</p></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2b833a07.js" defer></script><script src="/assets/js/6.a8766b0c.js" defer></script><script src="/assets/js/10.16103a1d.js" defer></script>
+  </body>
+</html>

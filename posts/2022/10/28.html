@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePressでブログをカスタマイズする(4)</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/1.styles.15374917.css" as="style"><link rel="preload" href="/assets/js/app.2b833a07.js" as="script"><link rel="preload" href="/assets/js/6.a8766b0c.js" as="script"><link rel="preload" href="/assets/js/13.5aebfa6b.js" as="script"><link rel="prefetch" href="/assets/js/10.16103a1d.js"><link rel="prefetch" href="/assets/js/11.230760e5.js"><link rel="prefetch" href="/assets/js/12.551ce52f.js"><link rel="prefetch" href="/assets/js/14.7ed72f35.js"><link rel="prefetch" href="/assets/js/15.8ce6a72c.js"><link rel="prefetch" href="/assets/js/2.b8abfec1.js"><link rel="prefetch" href="/assets/js/3.66cff7e1.js"><link rel="prefetch" href="/assets/js/4.bc55eff7.js"><link rel="prefetch" href="/assets/js/5.e4220901.js"><link rel="prefetch" href="/assets/js/7.f0ff3924.js"><link rel="prefetch" href="/assets/js/8.dbee05fc.js"><link rel="prefetch" href="/assets/js/9.7ed29525.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.15374917.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="m-20"><div class="content__default"><h1 id="vuepressでブログをカスタマイズする-4"><a href="#vuepressでブログをカスタマイズする-4" class="header-anchor">#</a> VuePressでブログをカスタマイズする(4)</h1> <p>サイトのメタ情報について。公式サイトにある<a href="https://vuepress.vuejs.org/guide/global-computed.html" target="_blank" rel="noopener noreferrer">Global Computed<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>に書かれている項目からメタ情報が取得できます。これらの情報はコンポーネント内からでも、Markdown内からでも参照できます。Markdown内に書いてみて実際に試してみます。</p> <div class="language-vue extra-class"><pre class="language-vue"><code>{{ $site.pages.map(p =&gt; p.key) }}
+</code></pre></div><p>[
+  &quot;v-b4f76ba2&quot;,
+  &quot;v-71883cf2&quot;,
+  &quot;v-80800174&quot;,
+  &quot;v-7247527c&quot;,
+  &quot;v-6b2afb00&quot;,
+  &quot;v-479d4594&quot;,
+  &quot;v-4e0698ec&quot;,
+  &quot;v-44aab940&quot;
+]</p> <p>機能の実現に必要な項目が取得できるか確認しましょう。まずはタグの一覧を取得する必要がありそうですね。タグはfrontmatterから取得できます。frontmatterはMarkdown内の先頭に記載する特別なコメントです。このように記載します。</p> <div class="language-md extra-class"><pre class="language-md"><code><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml">tags:
+    - VuePress</span>
+<span class="token punctuation">---</span></span>
+</code></pre></div><p>[
+  {
+    &quot;key&quot;: &quot;v-b4f76ba2&quot;,
+    &quot;path&quot;: &quot;/&quot;
+  },
+  {
+    &quot;key&quot;: &quot;v-71883cf2&quot;,
+    &quot;path&quot;: &quot;/posts/2022/10/19.html&quot;,
+    &quot;title&quot;: &quot;何度でも立ち上がる(※懲りずにブログ始めました)&quot;
+  },
+  {
+    &quot;key&quot;: &quot;v-80800174&quot;,
+    &quot;path&quot;: &quot;/posts/2022/10/20.html&quot;,
+    &quot;title&quot;: &quot;VuePressでブログをカスタマイズする&quot;,
+    &quot;tags&quot;: [
+      &quot;VuePress&quot;
+    ]
+  },
+  {
+    &quot;key&quot;: &quot;v-7247527c&quot;,
+    &quot;path&quot;: &quot;/posts/2022/10/22.html&quot;,
+    &quot;title&quot;: &quot;VuePressでブログをカスタマイズする(2)&quot;,
+    &quot;tags&quot;: [
+      &quot;VuePress&quot;
+    ]
+  },
+  {
+    &quot;key&quot;: &quot;v-6b2afb00&quot;,
+    &quot;path&quot;: &quot;/posts/2022/10/23.html&quot;,
+    &quot;title&quot;: &quot;VuePressでブログをカスタマイズする(3)&quot;,
+    &quot;tags&quot;: [
+      &quot;VuePress&quot;
+    ]
+  },
+  {
+    &quot;key&quot;: &quot;v-479d4594&quot;,
+    &quot;path&quot;: &quot;/posts/2022/10/28.html&quot;,
+    &quot;title&quot;: &quot;VuePressでブログをカスタマイズする(4)&quot;,
+    &quot;tags&quot;: [
+      &quot;VuePress&quot;
+    ]
+  },
+  {
+    &quot;key&quot;: &quot;v-4e0698ec&quot;,
+    &quot;path&quot;: &quot;/posts/tips/how_to_use_nvm.html&quot;,
+    &quot;title&quot;: &quot;nvmでnodeのバージョンを管理する&quot;
+  },
+  {
+    &quot;key&quot;: &quot;v-44aab940&quot;,
+    &quot;path&quot;: &quot;/tags/vuepress.html&quot;,
+    &quot;title&quot;: &quot;HELLO&quot;
+  }
+]</p> <p>動的なページ生成に必要な情報は取得できていますね。では次回からプラグインの実装に着手していきます。</p></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2b833a07.js" defer></script><script src="/assets/js/6.a8766b0c.js" defer></script><script src="/assets/js/13.5aebfa6b.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePressでブログをカスタマイズする(3)</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/1.styles.15374917.css" as="style"><link rel="preload" href="/assets/js/app.2b833a07.js" as="script"><link rel="preload" href="/assets/js/6.a8766b0c.js" as="script"><link rel="preload" href="/assets/js/12.551ce52f.js" as="script"><link rel="prefetch" href="/assets/js/10.16103a1d.js"><link rel="prefetch" href="/assets/js/11.230760e5.js"><link rel="prefetch" href="/assets/js/13.5aebfa6b.js"><link rel="prefetch" href="/assets/js/14.7ed72f35.js"><link rel="prefetch" href="/assets/js/15.8ce6a72c.js"><link rel="prefetch" href="/assets/js/2.b8abfec1.js"><link rel="prefetch" href="/assets/js/3.66cff7e1.js"><link rel="prefetch" href="/assets/js/4.bc55eff7.js"><link rel="prefetch" href="/assets/js/5.e4220901.js"><link rel="prefetch" href="/assets/js/7.f0ff3924.js"><link rel="prefetch" href="/assets/js/8.dbee05fc.js"><link rel="prefetch" href="/assets/js/9.7ed29525.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.15374917.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="m-20"><div class="content__default"><h1 id="vuepressでブログをカスタマイズする-3"><a href="#vuepressでブログをカスタマイズする-3" class="header-anchor">#</a> VuePressでブログをカスタマイズする(3)</h1> <p><a href="/posts/2022/10/22">前回</a>の記事でこれからやるべきことをリストアップできたのでそれらを順番につぶしていきます。今回はVueコンポーネントを作成してMarkdownから利用できるようにしていきます。Vueコンポーネントは<code>docs/.vuepress/components</code>に作成していきます。※<code>docs/.vuepress</code>ディレクトリは<code>yarn build</code>した際に自動的に作成されています。</p> <h2 id="vueコンポーネントを実装する"><a href="#vueコンポーネントを実装する" class="header-anchor">#</a> Vueコンポーネントを実装する</h2> <p>下記の内容で<code>docs/.vuepress/components/MyComponent.vue</code>を作成します。</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    Hello, {{ name }}!
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> String
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.my-component</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> cyan<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>作成したコンポーネントを呼び出すにはMarkdownで下記のように記述します。</p> <div class="language-md extra-class"><pre class="language-md"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyComponent</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>World<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div><MyComponent name="World"></MyComponent> <p>正常に動作していれば以下のように表示されているはずです。</p> <p>ここにスクショ</p> <p>コンポーネントの実装の詳細を見ていきます。ここでのポイントは<code>&lt;script&gt;～&lt;/script&gt;</code>内の<code>props</code>です。<code>props</code>はコンポーネントの外から渡すことができるプロパティの名前と型を定義するために使います。この例ではnameというプロパティがString、つまり文字列型であると言っています。コンポーネントが受け取ったプロパティは<code>&lt;template&gt;～&lt;/template&gt;</code>内で使うことができます。上のスクショでも<code>name</code>の部分が<code>World</code>で置き換えられていることがわかりますね。</p> <div class="language-vue extra-class"><pre class="language-vue"><code>{{ ... }}
+</code></pre></div><p>の部分では受け取ったプロパティだけではなく任意のJS式を記述することができます。ためしにコンポーネントの<code>&lt;template&gt;～&lt;template&gt;</code>を以下のように修正してみます。</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>{{ &quot;HELLO&quot; }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>{{ name.toLowerCase() }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>{{ new Date() }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>ちなみにJS式はコンポーネント内だけではなくMarkdownにそのまま書いても使うことができます。</p> <div class="language-md extra-class"><pre class="language-md"><code><span class="token list punctuation">-</span> 1 + 2 = {{ 1 + 2 }}
+</code></pre></div><ul><li>1 + 2 = 3</li></ul> <p>ちゃんと動いてますね。</p> <p>TODO</p> <ul><li>v-bindについて</li> <li>dataプロパティとCounterコンポーネント</li> <li>コンポーネントから他のコンポーネントを呼ぶ</li></ul></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2b833a07.js" defer></script><script src="/assets/js/6.a8766b0c.js" defer></script><script src="/assets/js/12.551ce52f.js" defer></script>
+  </body>
+</html>
