@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Just Plain Notes</title>
+    <link>https://just-plain-notes.blog/tags/blog/</link>
+    <description>Recent content in blog on Just Plain Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 03 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://just-plain-notes.blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugoのテンプレート(ショートコード)の使い方を整理しておく</title>
+      <link>https://just-plain-notes.blog/post/2023/04/understand-hugo-template/</link>
+      <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/04/understand-hugo-template/</guid>
+      <description>
+        
+          
+            このブログはHugoというGo言語製のジェネレータを使っています。すでに執筆作業中に冗長さを感じたり後で手直しが発生した場合にあちこち直して回らなければならないだろうな、ということが見えてしまって、モヤモヤしています。効率的な記事執筆のためにHugoのテンプレート機能の使い方についてまとめておくことにします。
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>ブログをはじめることにしました</title>
+      <link>https://just-plain-notes.blog/post/2023/04/start-blog/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/04/start-blog/</guid>
+      <description>
+        
+          
+            もう何度挫折したか数えきれないですが懲りずにブログを始めます。アウトプットできる人間になりたいという思いをどうしても捨てきれないということ、そして最近のブームに乗っかってAIの力を借りることができれば文章が下手くそな自分でもそこそこ戦えるんじゃないかなと目論んだからです。主に技術系の記事を書いていきます。よろしくお願いします。
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

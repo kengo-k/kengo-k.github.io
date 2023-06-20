@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Just Plain Notes</title>
+    <link>https://just-plain-notes.blog/</link>
+    <description>Recent content on Just Plain Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 03 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://just-plain-notes.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>そろそろRustデビュー目指すか・・・開発環境を作ってHelloWorld &#43;αする！</title>
+      <link>https://just-plain-notes.blog/post/2023/06/beginning-rust/</link>
+      <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/06/beginning-rust/</guid>
+      <description>
+        
+          
+            Rust入門をやります。みなさんは新しいプログラミング言語、学習してますか？(と言ってもRustは結構昔から、Wikipediaによると2010年から、あるらしい)。いったん一つの言語を身につけて、ご飯を食べるようになると今さら新しい言語なんて・・・ってなるよね。でもこの業界に身を置くなら常にアンテナ張って新しいものにチャレンジしていかないと、と(最近になってようやく)思うのです。そんなわけで私はRustを学びたい！一緒にお勉強してみませんか？
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>IAMをちゃんと使えてますか？AWSセキュリティの基本を理解しよう</title>
+      <link>https://just-plain-notes.blog/post/2023/04/understand-aws-iam/</link>
+      <pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/04/understand-aws-iam/</guid>
+      <description>
+        
+          
+            これまで業務でさんざんAWSを使ってきましたが、開発チームが用意した環境をただ使っていただけでした。個人でもAWSを安全に運用できるように、AWSのセキュリティの基本を理解していきたいと思います。今回はIAMの使用方法を中心に実際の手順を紹介していきます。
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Hugoのテンプレート(ショートコード)の使い方を整理しておく</title>
+      <link>https://just-plain-notes.blog/post/2023/04/understand-hugo-template/</link>
+      <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/04/understand-hugo-template/</guid>
+      <description>
+        
+          
+            このブログはHugoというGo言語製のジェネレータを使っています。すでに執筆作業中に冗長さを感じたり後で手直しが発生した場合にあちこち直して回らなければならないだろうな、ということが見えてしまって、モヤモヤしています。効率的な記事執筆のためにHugoのテンプレート機能の使い方についてまとめておくことにします。
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>ブログをはじめることにしました</title>
+      <link>https://just-plain-notes.blog/post/2023/04/start-blog/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/04/start-blog/</guid>
+      <description>
+        
+          
+            もう何度挫折したか数えきれないですが懲りずにブログを始めます。アウトプットできる人間になりたいという思いをどうしても捨てきれないということ、そして最近のブームに乗っかってAIの力を借りることができれば文章が下手くそな自分でもそこそこ戦えるんじゃないかなと目論んだからです。主に技術系の記事を書いていきます。よろしくお願いします。
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

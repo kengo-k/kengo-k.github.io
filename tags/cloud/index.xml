@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloud on Just Plain Notes</title>
+    <link>https://just-plain-notes.blog/tags/cloud/</link>
+    <description>Recent content in cloud on Just Plain Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 08 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://just-plain-notes.blog/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IAMをちゃんと使えてますか？AWSセキュリティの基本を理解しよう</title>
+      <link>https://just-plain-notes.blog/post/2023/04/understand-aws-iam/</link>
+      <pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://just-plain-notes.blog/post/2023/04/understand-aws-iam/</guid>
+      <description>
+        
+          
+            これまで業務でさんざんAWSを使ってきましたが、開発チームが用意した環境をただ使っていただけでした。個人でもAWSを安全に運用できるように、AWSのセキュリティの基本を理解していきたいと思います。今回はIAMの使用方法を中心に実際の手順を紹介していきます。
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
